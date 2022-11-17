@@ -6,4 +6,5 @@
       <h3>{{ post.auther }}</h3>
       <p>{{ post.body }}</p>
     </div>
+<a href="{% url 'post_edit' post.pk %}">Edit the Post</a>
 {% endblock content %}
