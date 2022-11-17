@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AkhmadjonBlog</title>
+    <title>AkiBlog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
@@ -11,8 +11,17 @@
 </head>
 <body>
 <header>
-  <h1><a href="{% url 'home' %}">AkhmadjonBlog</a></h1>
+  <h1><a href="{% url 'home' %}">AkiBlog</a></h1>
 </header>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}">Sign Out</a></p>
+{% else %}
+    <p>
+        <a href="{% url 'login' %}">Sign In</a><p>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    </p>
+{% endif %}
 <div>
   {% block content %}
   {% endblock content %}
